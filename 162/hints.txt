@@ -1,0 +1,59 @@
+Hints as I've built my answer for the tree assignment - Beth Katz
+
+I've done this assignment in various ways, so to be ready to help you,
+I'm building it again to remember what steps you'll need to consider.
+I'm writing hints as I build it.
+
+This note is stored as hints.txt in the files for the project.
+
+All your changes go in the BStree.java file. That's what you'll submit.
+
+You are writing 4 methods: 
+   insertWithNode - recursive
+   removeFromNode - recursive
+   dataFromDeletedRightmost - recursive
+   replaceChild - not recursive
+
+Remember that we are using a header node that has null data. Therefore,
+all the content of the tree is stored in that header node's right subtree. 
+
+Draw pictures of your test trees.
+
+For debugging, you might want to call printSideways each time through 
+the loop. However, remove the debugging lines so that your output
+matches our expected output. 
+
+----------
+Building insertWithNode
+- this part is straightforward; don't make it complicated
+- use if-elses nested inside an if-else
+- don't worry about whether the node parameter is null because 
+  you'll be sure that it isn't
+- decide which subtree
+- within each subtree's section, decide whether to add a new node or 
+  insert recursively within that subtree
+
+-----------
+Building removeFromNode
+- need to pass in the parent, the node, and item
+- consider 4 cases of null, looking in the left tree, looking in the 
+  right tree, or removing it from this node (and fixing the tree) 
+  and write that control structure
+- write the recursive calls to remove from the subtrees
+     what's the new parent? the new node? the target?
+- at that point of writing, I added a temporary print statement to note
+	that target was found; that let me test finding and not finding
+- re-read the assignment details about what to do when the target is found 
+     - that involves writing dataFromDeletedRightmost and replaceChild
+     - replaceChild is very easy - think simple
+     - I wrote the "null left sub-tree" case of remove and tested that
+     - dataFromDeletedRightmost returns the data in the node it deletes
+     - these are easier than they sound and when you have them, 
+       writing the remove code is straightforward
+     - think carefully about the parameters when calling 
+       dataFromDeletedRightmost from remove
+
+-----------
+- check that your name is on the top 
+- try to find bugs in your program
+
